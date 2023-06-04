@@ -68,6 +68,14 @@ jar {
     mainClassName = "io.github.palexdev.enbmanager.SpringEntry"
     archiveBaseName = "enbmanager"
     archiveVersion = ""
+
+    manifest {
+        attributes(
+                'Bundle-Name': project.name,
+                'Bundle-Description': "A tool to manage ENB configurations for supported games",
+                'MainClass': 'io.github.palexdev.enbmanager.SpringEntry'
+        )
+    }
 }
 
 // Enable Preview Features
