@@ -23,7 +23,7 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew assemble
 
-      - name: Publish Master Branch with jDeploy
-        uses: shannah/jdeploy@main
+      - name: Publish Main Branch with jDeploy
+        uses: shannah/jdeploy@master
         with:
-          github_token: '${{ secrets.JDeploy }}'
+          github_token: '${{ github.token }}'
