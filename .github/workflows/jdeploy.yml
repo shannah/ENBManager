@@ -16,7 +16,6 @@ jobs:
         with:
           java-version: '20'
           distribution: 'liberica'
-          cache: maven
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
