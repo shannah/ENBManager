@@ -65,6 +65,7 @@ application {
 }
 
 jar {
+    mainClassName = "io.github.palexdev.enbmanager.SpringEntry"
     archiveBaseName = "enbmanager"
     archiveVersion = ""
 }
