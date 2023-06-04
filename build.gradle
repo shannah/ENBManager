@@ -73,7 +73,7 @@ jar {
         attributes(
                 'Bundle-Name': project.name,
                 'Bundle-Description': "A tool to manage ENB configurations for supported games",
-                'MainClass': 'io.github.palexdev.enbmanager.SpringEntry'
+                'Main-Class': 'io.github.palexdev.enbmanager.SpringEntry'
         )
     }
 }
