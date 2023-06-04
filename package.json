@@ -1,0 +1,32 @@
+{
+  "bin": {
+    "enbmanager": "jdeploy-bundle/jdeploy.js"
+  },
+  "author": "palexdev",
+  "description": "A tool to manage ENB configurations for supported games",
+  "main": "index.js",
+  "preferGlobal": true,
+  "repository": "https://github.com/palexdev/ENBManager",
+  "version": "20.0.1",
+  "jdeploy": {
+    "jar": "build/libs/enbmanager.jar",
+    "jdk": false,
+    "javaVersion": "20",
+    "javafx": true,
+    "title": "ENBManager"
+  },
+  "dependencies": {
+    "command-exists-promise": "^2.0.2",
+    "node-fetch": "2.6.7",
+    "tar": "^4.4.8",
+    "yauzl": "^2.10.0",
+    "shelljs": "^0.8.4"
+  },
+  "name": "enbmanager",
+  "files": [
+    "jdeploy-bundle"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

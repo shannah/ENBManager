@@ -64,6 +64,11 @@ application {
     mainClass = "io.github.palexdev.enbmanager.SpringEntry"
 }
 
+jar {
+    archiveBaseName = "enbmanager"
+    archiveVersion = ""
+}
+
 // Enable Preview Features
 tasks.withType(JavaCompile).configureEach {
     options.compilerArgs += "--enable-preview"
