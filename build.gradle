@@ -1,0 +1,78 @@
+plugins {
+    id 'application'
+    id 'java'
+    id 'org.openjfx.javafxplugin' version "$jfxPlugin"
+}
+
+group = 'io.github.palexdev'
+version = "$enbManager"
+
+sourceCompatibility = "$jdk"
+targetCompatibility = "$jdk"
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+
+    maven {
+        url "https://sandec.jfrog.io/artifactory/repo"
+    }
+}
+
+dependencies {
+    // JavaFX
+    implementation "io.github.palexdev:materialfx:$mfx"
+    implementation "io.github.palexdev:mfxcomponents:$mfxcomponents"
+    implementation "io.github.palexdev:mfxcore:$mfxcore"
+    implementation "io.github.palexdev:mfxeffects:$mfxeffects"
+    implementation "io.github.palexdev:mfxlocalization:$mfxlocalization"
+    implementation "io.github.palexdev:mfxresources:$mfxresources"
+    implementation "io.github.palexdev:virtualizedfx:$vfx"
+    implementation "com.sandec:mdfx:$markdownFX"
+    implementation("fr.brouillard.oss:cssfx:$cssfx")
+    implementation("io.github.palexdev:scenicview:$scenicView") {
+        exclude group: "org.openjfx"
+    }
+    testImplementation "org.testfx:testfx-junit5:$testfx"
+
+    // Spring
+    implementation("org.springframework.boot:spring-boot:$spring")
+    implementation("org.springframework.boot:spring-boot-autoconfigure:$spring")
+    testImplementation("org.springframework.boot:spring-boot-test:$spring")
+
+    // Misc
+    implementation "com.github.oshi:oshi-core-java11:$oshi"
+    implementation "io.methvin:directory-watcher:$dirWatcher"
+
+    // JUnit
+    testImplementation platform("org.junit:junit-bom:$junit")
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+javafx {
+    version = "$jfx"
+    modules = ["javafx.controls", "javafx.fxml"]
+    configurations = ['compileOnly', 'runtimeOnly', 'testImplementation']
+}
+
+application {
+    mainModule = "ENBManager"
+    mainClass = "io.github.palexdev.enbmanager.SpringEntry"
+}
+
+// Enable Preview Features
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs += "--enable-preview"
+}
+
+tasks.withType(Test).configureEach {
+    jvmArgs += "--enable-preview"
+}
+
+tasks.withType(JavaExec).configureEach {
+    jvmArgs += '--enable-preview'
+}
